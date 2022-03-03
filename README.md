@@ -2,7 +2,7 @@
 ##### Transpile to javascript using `tsc` command
 ##### Then either run index.js with node `node index.js` or directly in browser
 
-### Example usage ⚙️
+### Example usage 🔧
 ```js
 // initialize board with width of 30, height of 20 and population of 30%
 let board = initalizeBoard(30, 20, 30); 
