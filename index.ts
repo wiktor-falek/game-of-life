@@ -55,10 +55,26 @@ function getAliveNeighborsCount(x: number, y: number, board: boolean[][]): numbe
     return aliveCount;
 }
 
-function updateBoard(board: boolean[][]): void {
+function getUpdatedBoard(board: boolean[][]): boolean[][] {
+    const width = board[0].length;
+    const height = board.length;
+
+    const newBoard: boolean[][] = initalizeBoard(width, height, 0);
+    
+    for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+            let aliveNeighborsCount = getAliveNeighborsCount(x, y, board);
+            let cellValue = getCellValue(x, y, board);
+            if (aliveNeighborsCount === 2 && cellValue || aliveNeighborsCount === 3) {
+                newBoard[y][x] = true;
+            }
+        }
+    }
+
+    return newBoard;
 }
 
-function prettyPrintBoard(alive: string, dead: string, board: boolean[][]): void {
+function printBoard(alive: string, dead: string, board: boolean[][]): void {
     let buf = "";
     board.forEach(row => {
         row.forEach(cell => {
@@ -69,4 +85,10 @@ function prettyPrintBoard(alive: string, dead: string, board: boolean[][]): void
     console.log(buf);
 }
 
+let board = initalizeBoard(30, 20, 30);
+setInterval(() => {
+    console.clear();
+    printBoard("🟩", "⬛", board);
+    board = getUpdatedBoard(board);
+}, 200);
 
