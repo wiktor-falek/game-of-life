@@ -11,10 +11,10 @@ function initalizeBoard(width: number, height: number, population: number = 0): 
         return row.map(() => {
             let roll = Math.random() * 100;
             return (population > roll);
-        })
+        });
     });
     return board;
-};
+}
 
 /**
  * returns value of cell at (x, y)
@@ -31,7 +31,7 @@ function getCellValue(x: number, y: number, board: boolean[][]): boolean {
     const yIndex = ((y % height) + height) % height;
 
     return board[yIndex][xIndex];
-};
+}
 
 /**
  * returns total amount of alive neighbors around position (x, y)
@@ -44,17 +44,21 @@ function getAliveNeighborsCount(x: number, y: number, board: boolean[][]): numbe
         [x-1, y-1], [x-1, y], [x-1, y+1],
         [x, y-1  ],           [x, y+1  ],
         [x+1, y-1], [x+1, y], [x+1, y+1]
-    ]
+    ];
 
     let aliveCount = 0;
 
     neighborCoordinates.forEach((pos) => {
         let [x, y] = pos;
         aliveCount += +getCellValue(x, y, board);
-    })
+    });
     return aliveCount;
 }
 
+/**
+ * initializes new board and returns updated board
+ * @param board two dimensional array
+ */
 function getUpdatedBoard(board: boolean[][]): boolean[][] {
     const width = board[0].length;
     const height = board.length;
@@ -67,13 +71,17 @@ function getUpdatedBoard(board: boolean[][]): boolean[][] {
             let cellValue = getCellValue(x, y, board);
             if (aliveNeighborsCount === 2 && cellValue || aliveNeighborsCount === 3) {
                 newBoard[y][x] = true;
-            }
-        }
-    }
-
+            };
+        };
+    };
     return newBoard;
 }
 
+/**
+ * @param alive character representing alive cells
+ * @param dead character representing dead cells
+ * @param board two dimensional array
+ */
 function printBoard(alive: string, dead: string, board: boolean[][]): void {
     let buf = "";
     board.forEach(row => {
@@ -91,4 +99,3 @@ setInterval(() => {
     printBoard("🟩", "⬛", board);
     board = getUpdatedBoard(board);
 }, 200);
-
