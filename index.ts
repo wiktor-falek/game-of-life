@@ -69,6 +69,4 @@ function prettyPrintBoard(alive: string, dead: string, board: boolean[][]): void
     console.log(buf);
 }
 
-const board = initalizeBoard(8, 5, 50);
-prettyPrintBoard("🟩", "⬛", board);
-const aliveNeighbors = getAliveNeighborsCount(1, 1, board);
+
