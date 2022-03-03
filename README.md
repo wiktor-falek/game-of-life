@@ -8,7 +8,6 @@
 let board = initalizeBoard(30, 20, 30); 
 
 setInterval(() => {
-    console.clear();
     printBoard("🟩", "⬛", board); // characters of choice for representation of alive and dead cells
     board = getUpdatedBoard(board); 
 }, 200); // update every 200ms
