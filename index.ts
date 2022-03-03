@@ -9,7 +9,7 @@ function initalizeBoard(width: number, height: number, population: number = 0): 
     .fill(row)
     .map((row) => {
         return row.map(() => {
-            let roll = Math.random() * 100;
+            let roll: number = Math.random() * 100;
             return (population > roll);
         });
     });
@@ -24,11 +24,11 @@ function initalizeBoard(width: number, height: number, population: number = 0): 
  * @param board two dimensional array
  */
 function getCellValue(x: number, y: number, board: boolean[][]): boolean {
-    const width = board[0].length;
-    const height = board.length;
+    const width: number  = board[0].length;
+    const height: number  = board.length;
     
-    const xIndex = ((x % width) + width) % width;
-    const yIndex = ((y % height) + height) % height;
+    const xIndex: number  = ((x % width) + width) % width;
+    const yIndex: number  = ((y % height) + height) % height;
 
     return board[yIndex][xIndex];
 }
@@ -46,7 +46,7 @@ function getAliveNeighborsCount(x: number, y: number, board: boolean[][]): numbe
         [x+1, y-1], [x+1, y], [x+1, y+1]
     ];
 
-    let aliveCount = 0;
+    let aliveCount: number = 0;
 
     neighborCoordinates.forEach((pos) => {
         let [x, y] = pos;
@@ -60,15 +60,15 @@ function getAliveNeighborsCount(x: number, y: number, board: boolean[][]): numbe
  * @param board two dimensional array
  */
 function getUpdatedBoard(board: boolean[][]): boolean[][] {
-    const width = board[0].length;
-    const height = board.length;
+    const width: number = board[0].length;
+    const height: number = board.length;
 
     const newBoard: boolean[][] = initalizeBoard(width, height, 0);
     
     for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {
-            let aliveNeighborsCount = getAliveNeighborsCount(x, y, board);
-            let cellValue = getCellValue(x, y, board);
+            let aliveNeighborsCount: number = getAliveNeighborsCount(x, y, board);
+            let cellValue: boolean = getCellValue(x, y, board);
             if (aliveNeighborsCount === 2 && cellValue || aliveNeighborsCount === 3) {
                 newBoard[y][x] = true;
             };
@@ -78,24 +78,25 @@ function getUpdatedBoard(board: boolean[][]): boolean[][] {
 }
 
 /**
+ * clears console and logs buffered string
  * @param alive character representing alive cells
  * @param dead character representing dead cells
  * @param board two dimensional array
  */
 function printBoard(alive: string, dead: string, board: boolean[][]): void {
-    let buf = "";
+    let buffer: string = "";
     board.forEach(row => {
         row.forEach(cell => {
-            buf += cell? alive: dead;
+            buffer += cell? alive: dead;
         });
-        buf += '\n';
+        buffer += '\n';
     });
-    console.log(buf);
+    console.clear();
+    console.log(buffer);
 }
 
 let board = initalizeBoard(30, 20, 30);
 setInterval(() => {
-    console.clear();
     printBoard("🟩", "⬛", board);
     board = getUpdatedBoard(board);
-}, 200);
+}, 10);
