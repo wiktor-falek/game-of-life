@@ -18,7 +18,7 @@ function initalizeBoard(width: number, height: number, population: number = 0): 
 
 /**
  * returns value of cell at (x, y)
- * supports negative indexing to allow for toroidal board
+ * supports negative indexing to allow for toroidal matrix
  * @param x horizontal
  * @param y vertical
  * @param board two dimensional array
