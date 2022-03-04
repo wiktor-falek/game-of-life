@@ -56,10 +56,10 @@ function getAliveNeighborsCount(x: number, y: number, board: boolean[][]): numbe
 }
 
 /**
- * initializes new board and returns updated board
+ * initializes new board, recalculates state of each cell and returns updated board
  * @param board two dimensional array
  */
-function getUpdatedBoard(board: boolean[][]): boolean[][] {
+function nextGeneration(board: boolean[][]): boolean[][] {
     const width: number = board[0].length;
     const height: number = board.length;
 
@@ -100,5 +100,5 @@ let board = initalizeBoard(30, 20, 30);
 
 setInterval(() => {
     printBoard("🟩", "⬛", board); // characters of choice for representation of alive and dead cells
-    board = getUpdatedBoard(board); 
+    board = nextGeneration(board); 
 }, 200); // update every 200ms
