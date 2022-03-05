@@ -11,27 +11,27 @@ function initalizeBoard(width, height, population = 0) {
     });
     return board;
 }
-function getCellValue(x, y, board) {
-    const width = board[0].length;
-    const height = board.length;
-    const xIndex = ((x % width) + width) % width;
-    const yIndex = ((y % height) + height) % height;
-    return board[yIndex][xIndex];
-}
-function getAliveNeighborsCount(x, y, board) {
-    const neighborCoordinates = [
-        [x - 1, y - 1], [x - 1, y], [x - 1, y + 1],
-        [x, y - 1], [x, y + 1],
-        [x + 1, y - 1], [x + 1, y], [x + 1, y + 1]
-    ];
-    let aliveCount = 0;
-    neighborCoordinates.forEach((pos) => {
-        let [x, y] = pos;
-        aliveCount += +getCellValue(x, y, board);
-    });
-    return aliveCount;
-}
 function nextGeneration(board) {
+    function getCellValue(x, y, board) {
+        const width = board[0].length;
+        const height = board.length;
+        const xIndex = ((x % width) + width) % width;
+        const yIndex = ((y % height) + height) % height;
+        return board[yIndex][xIndex];
+    }
+    function getAliveNeighborsCount(x, y, board) {
+        const neighborCoordinates = [
+            [x - 1, y - 1], [x - 1, y], [x - 1, y + 1],
+            [x, y - 1], [x, y + 1],
+            [x + 1, y - 1], [x + 1, y], [x + 1, y + 1]
+        ];
+        let aliveCount = 0;
+        neighborCoordinates.forEach((pos) => {
+            let [x, y] = pos;
+            aliveCount += +getCellValue(x, y, board);
+        });
+        return aliveCount;
+    }
     const width = board[0].length;
     const height = board.length;
     const newBoard = initalizeBoard(width, height, 0);
@@ -95,4 +95,4 @@ setInterval(() => {
         return;
     renderBoard();
     board = nextGeneration(board);
-}, 200);
+}, 2000);
