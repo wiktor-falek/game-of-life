@@ -95,10 +95,49 @@ function printBoard(alive: string, dead: string, board: boolean[][]): void {
     console.log(buffer);
 }
 
-// initialize board with width of 30, height of 20 and population of 30%
-let board = initalizeBoard(30, 20, 30); 
+function drawSquare(x: number, y: number, board: boolean[][], squareSize:number = 10): void {
+    const cellIsAlive = board[y][x];
+    ctx.fillStyle = cellIsAlive? "green": "black";
+    ctx.fillRect(x*squareSize, y*squareSize, squareSize-1, squareSize-1);
+}
+
+function renderBoard(): void {
+    board.forEach((row, y) => {
+        row.forEach((cell, x) => {
+            drawSquare(x, y, board);
+        })
+    })
+    board = nextGeneration(board);
+}
+
+// Board Settings
+const width: number = 80;
+const height: number = 60;
+const population: number = 10;
+
+// Global Variables
+let paused: boolean = false;
+let board: boolean[][] = initalizeBoard(width, height, population);
+
+// HTML Elements
+const pauseButton: any = document.querySelector("#pause");
+pauseButton.addEventListener('click', () => {
+    paused = !paused;
+    pauseButton.value = paused? "Resume": "Pause";
+})
+
+const resetButton: any = document.querySelector("#reset");
+resetButton.addEventListener('click', () => {
+    board = initalizeBoard(width, height, population);
+    renderBoard();
+})
+
+// Rendering
+const canvas: any = document.querySelector('#canvas');
+const ctx: any = canvas.getContext('2d');
 
 setInterval(() => {
-    printBoard("🟩", "⬛", board); // characters of choice for representation of alive and dead cells
-    board = nextGeneration(board); 
-}, 200); // update every 200ms
+    if (paused) return;
+    renderBoard();
+    board = nextGeneration(board);
+}, 200);
