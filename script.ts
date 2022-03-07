@@ -112,11 +112,16 @@ function renderBoard(board: boolean[][]): void {
 }
 
 // HTML Elements
+const canvas: any = document.querySelector('#canvas');
+const ctx: any = canvas.getContext('2d');
+
+
 const nextButton: any = document.querySelector("#next");
 nextButton.addEventListener('click', (e: any) => {
     board = nextGeneration(board)
     renderBoard(board);
 })
+
 
 const pauseButton: any = document.querySelector("#pause");
 pauseButton.addEventListener('click', (e: any) => {
@@ -124,15 +129,17 @@ pauseButton.addEventListener('click', (e: any) => {
     paused = !paused;
 })
 
+
 const resetButton: any = document.querySelector("#reset");
 resetButton.addEventListener('click', (e: any) => {
     board = initalizeBoard(width, height, population);
     renderBoard(board);
 })
 
+
 const speedSlider: any = document.querySelector("#speed");
 speedSlider.addEventListener('change', (e: any) => {
-    timeout = +e.target.value;
+    timeout = 1000 - +speedSlider.value;
 })
 
 
@@ -141,23 +148,16 @@ const width: number = 40;
 const height: number = 30;
 const population: number = 20;
 
+
 // Global Variables
-let timeout: number = +speedSlider.value;
+let timeout: number = 1000 - +speedSlider.value;
 let paused: boolean = false;
 let board: boolean[][] = initalizeBoard(width, height, population);
 
-
-// Rendering
-const canvas: any = document.querySelector('#canvas');
-const ctx: any = canvas.getContext('2d');
-
-
-function loop() {
+(function loop() {
     if (!paused) {
         renderBoard(board);  
         board = nextGeneration(board);
     }
     window.setTimeout(loop, timeout);
-}
-
-loop()
+})();
