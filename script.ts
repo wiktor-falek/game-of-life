@@ -111,36 +111,53 @@ function renderBoard(board: boolean[][]): void {
     board = nextGeneration(board);
 }
 
+// HTML Elements
+const nextButton: any = document.querySelector("#next");
+nextButton.addEventListener('click', (e: any) => {
+    board = nextGeneration(board)
+    renderBoard(board);
+})
+
+const pauseButton: any = document.querySelector("#pause");
+pauseButton.addEventListener('click', (e: any) => {
+    e.target.textContent = paused? "Pause": "Resume";
+    paused = !paused;
+})
+
+const resetButton: any = document.querySelector("#reset");
+resetButton.addEventListener('click', (e: any) => {
+    board = initalizeBoard(width, height, population);
+    renderBoard(board);
+})
+
+const speedSlider: any = document.querySelector("#speed");
+speedSlider.addEventListener('change', (e: any) => {
+    timeout = +e.target.value;
+})
+
+
 // Board Settings
 const width: number = 40;
 const height: number = 30;
 const population: number = 20;
 
 // Global Variables
+let timeout: number = +speedSlider.value;
 let paused: boolean = false;
 let board: boolean[][] = initalizeBoard(width, height, population);
 
-// HTML Elements
-const pauseButton: any = document.querySelector("#pause");
-pauseButton.addEventListener('click', (e: any) => {
-    console.log(e);
-    e.target.textContent = paused? "Pause": "Resume";
-    paused = !paused;
-})
-
-const resetButton: any = document.querySelector("#reset");
-resetButton.addEventListener('click', () => {
-    board = initalizeBoard(width, height, population);
-    renderBoard(board);
-    printBoard(board);
-})
 
 // Rendering
 const canvas: any = document.querySelector('#canvas');
 const ctx: any = canvas.getContext('2d');
 
-setInterval(() => {
-    if (paused) return;
-    renderBoard(board);  
-    board = nextGeneration(board);
-}, 500);
+
+function loop() {
+    if (!paused) {
+        renderBoard(board);  
+        board = nextGeneration(board);
+    }
+    window.setTimeout(loop, timeout);
+}
+
+loop()

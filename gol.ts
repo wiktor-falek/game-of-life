@@ -83,7 +83,7 @@ function nextGeneration(board: boolean[][]): boolean[][] {
  * @param dead character representing dead cells
  * @param board two dimensional array
  */
-function printBoard(alive: string, dead: string, board: boolean[][]): void {
+function printBoard(board: boolean[][], alive: string, dead: string): void {
     let buffer: string = "";
     board.forEach(row => {
         row.forEach(cell => {
