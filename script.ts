@@ -3,7 +3,7 @@
  * @param height amount of arrays
  * @param population percentage chance of each individual cell to become true
  */
-function initalizeBoard(width: number, height: number, population: number = 0): boolean[][]  {
+ function initializeBoard(width: number, height: number, population: number = 0): boolean[][]  {
     const row: boolean[] = new Array(width).fill(false);
     const board: boolean[][] = new Array(height)
     .fill(row)
@@ -63,7 +63,7 @@ function nextGeneration(board: boolean[][]): boolean[][] {
     const width: number = board[0].length;
     const height: number = board.length;
 
-    const newBoard: boolean[][] = initalizeBoard(width, height, 0);
+    const newBoard: boolean[][] = initializeBoard(boardWidth, boardHeight, 0);
     
     for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {
@@ -75,25 +75,6 @@ function nextGeneration(board: boolean[][]): boolean[][] {
         };
     };
     return newBoard;
-}
-
-/**
- * clears console and logs buffered string
- * @param alive character representing alive cells
- * @param dead character representing dead cells
- * @param board two dimensional array
- */
-
-function printBoard(board: boolean[][], alive: string = "🟩", dead: string = "⬛"): void {
-    let buffer: string = "";
-    board.forEach(row => {
-        row.forEach(cell => {
-            buffer += cell? alive: dead;
-        });
-        buffer += '\n';
-    });
-    console.clear();
-    console.log(buffer);
 }
 
 function drawSquare(x: number, y: number, board: boolean[][], squareSize:number = 20): void {
@@ -116,7 +97,7 @@ const ctx: any = canvas.getContext('2d');
 
 
 const nextButton: any = document.querySelector("#next");
-nextButton.addEventListener('click', (e: any) => {
+nextButton.addEventListener('click', () => {
     board = nextGeneration(board)
     renderBoard(board);
 })
@@ -130,28 +111,32 @@ pauseButton.addEventListener('click', (e: any) => {
 
 
 const resetButton: any = document.querySelector("#reset");
-resetButton.addEventListener('click', (e: any) => {
-    board = initalizeBoard(width, height, population);
+resetButton.addEventListener('click', () => {
+    board = initializeBoard(boardWidth, boardHeight, population);
     renderBoard(board);
 })
 
 
 const speedSlider: any = document.querySelector("#speed");
 speedSlider.addEventListener('change', (e: any) => {
-    timeout = 1000 - +speedSlider.value;
+    timeout = 1000 - +e.target.value;
+})
+
+const populationSlider: any = document.querySelector("#population");
+populationSlider.addEventListener('change', (e: any) => {
+    population = +e.target.value;
 })
 
 
-// Board Settings
-const width: number = 40;
-const height: number = 30;
-const population: number = 20;
-
-
 // Global Variables
+let population: number = 20;
 let timeout: number = 1000 - +speedSlider.value;
 let paused: boolean = false;
-let board: boolean[][] = initalizeBoard(width, height, population);
+
+const boardWidth: number = 40;
+const boardHeight: number = 30;
+
+let board: boolean[][] = initializeBoard(boardWidth, boardHeight, population);
 
 (function loop() {
     if (!paused) {
