@@ -108,7 +108,6 @@ function renderBoard(board: boolean[][]): void {
             drawSquare(x, y, board);
         })
     })
-    board = nextGeneration(board);
 }
 
 // HTML Elements
