@@ -100,7 +100,7 @@ canvas.addEventListener("mousedown", function(e: any) {
     const yIndex = (e.clientY - rect.top) / squareSize >> 0;
     const cell = getCellValue(xIndex, yIndex, board);
     board[yIndex][xIndex] = !cell;
-    drawSquare(xIndex, yIndex, board, squareSize)
+    drawSquare(xIndex, yIndex, board, squareSize);
 })
 
 const ctx: any = canvas.getContext('2d');
