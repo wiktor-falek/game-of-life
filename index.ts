@@ -77,7 +77,7 @@ function nextGeneration(board: boolean[][]): boolean[][] {
     return newBoard;
 }
 
-function drawSquare(x: number, y: number, board: boolean[][], squareSize:number = 20): void {
+function drawSquare(x: number, y: number, board: boolean[][], squareSize:number): void {
     const cellIsAlive = board[y][x];
     ctx.fillStyle = cellIsAlive? "green": "black";
     ctx.fillRect(x*squareSize, y*squareSize, squareSize-1, squareSize-1);
@@ -86,13 +86,23 @@ function drawSquare(x: number, y: number, board: boolean[][], squareSize:number 
 function renderBoard(board: boolean[][]): void {
     board.forEach((row, y) => {
         row.forEach((cell, x) => {
-            drawSquare(x, y, board);
+            drawSquare(x, y, board, squareSize);
         })
     })
 }
 
+
 // HTML Elements
 const canvas: any = document.querySelector('#canvas');
+canvas.addEventListener("mousedown", function(e: any) {
+    const rect = canvas.getBoundingClientRect();
+    const xIndex = (e.clientX - rect.left) / squareSize >> 0;
+    const yIndex = (e.clientY - rect.top) / squareSize >> 0;
+    const cell = getCellValue(xIndex, yIndex, board);
+    board[yIndex][xIndex] = !cell;
+    drawSquare(xIndex, yIndex, board, squareSize)
+})
+
 const ctx: any = canvas.getContext('2d');
 
 
@@ -135,6 +145,7 @@ let paused: boolean = false;
 
 const boardWidth: number = 40;
 const boardHeight: number = 30;
+const squareSize:number  = 20;
 
 let board: boolean[][] = initializeBoard(boardWidth, boardHeight, population);
 
