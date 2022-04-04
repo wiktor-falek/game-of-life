@@ -3,7 +3,7 @@
  * @param height amount of arrays
  * @param population percentage chance of each individual cell to become true
  */
-function initalizeBoard(width: number, height: number, population: number = 0): boolean[][]  {
+ function initializeBoard(width: number, height: number, population: number = 0): boolean[][]  {
     const row: boolean[] = new Array(width).fill(false);
     const board: boolean[][] = new Array(height)
     .fill(row)
@@ -63,7 +63,7 @@ function nextGeneration(board: boolean[][]): boolean[][] {
     const width: number = board[0].length;
     const height: number = board.length;
 
-    const newBoard: boolean[][] = initalizeBoard(width, height, 0);
+    const newBoard: boolean[][] = initializeBoard(boardWidth, boardHeight, 0);
     
     for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {
@@ -77,67 +77,71 @@ function nextGeneration(board: boolean[][]): boolean[][] {
     return newBoard;
 }
 
-/**
- * clears console and logs buffered string
- * @param alive character representing alive cells
- * @param dead character representing dead cells
- * @param board two dimensional array
- */
-function printBoard(alive: string, dead: string, board: boolean[][]): void {
-    let buffer: string = "";
-    board.forEach(row => {
-        row.forEach(cell => {
-            buffer += cell? alive: dead;
-        });
-        buffer += '\n';
-    });
-    console.clear();
-    console.log(buffer);
-}
-
-function drawSquare(x: number, y: number, board: boolean[][], squareSize:number = 10): void {
+function drawSquare(x: number, y: number, board: boolean[][], squareSize:number = 20): void {
     const cellIsAlive = board[y][x];
     ctx.fillStyle = cellIsAlive? "green": "black";
     ctx.fillRect(x*squareSize, y*squareSize, squareSize-1, squareSize-1);
 }
 
-function renderBoard(): void {
+function renderBoard(board: boolean[][]): void {
     board.forEach((row, y) => {
         row.forEach((cell, x) => {
             drawSquare(x, y, board);
         })
     })
-    board = nextGeneration(board);
 }
 
-// Board Settings
-const width: number = 80;
-const height: number = 60;
-const population: number = 10;
-
-// Global Variables
-let paused: boolean = false;
-let board: boolean[][] = initalizeBoard(width, height, population);
-
 // HTML Elements
-const pauseButton: any = document.querySelector("#pause");
-pauseButton.addEventListener('click', () => {
-    paused = !paused;
-    pauseButton.value = paused? "Resume": "Pause";
-})
-
-const resetButton: any = document.querySelector("#reset");
-resetButton.addEventListener('click', () => {
-    board = initalizeBoard(width, height, population);
-    renderBoard();
-})
-
-// Rendering
 const canvas: any = document.querySelector('#canvas');
 const ctx: any = canvas.getContext('2d');
 
-setInterval(() => {
-    if (paused) return;
-    renderBoard();
-    board = nextGeneration(board);
-}, 200);
+
+const nextButton: any = document.querySelector("#next");
+nextButton.addEventListener('click', () => {
+    board = nextGeneration(board)
+    renderBoard(board);
+})
+
+
+const pauseButton: any = document.querySelector("#pause");
+pauseButton.addEventListener('click', (e: any) => {
+    e.target.textContent = paused? "Pause": "Resume";
+    paused = !paused;
+})
+
+
+const resetButton: any = document.querySelector("#reset");
+resetButton.addEventListener('click', () => {
+    board = initializeBoard(boardWidth, boardHeight, population);
+    renderBoard(board);
+})
+
+
+const speedSlider: any = document.querySelector("#speed");
+speedSlider.addEventListener('change', (e: any) => {
+    timeout = 1000 - +e.target.value;
+})
+
+const populationSlider: any = document.querySelector("#population");
+populationSlider.addEventListener('change', (e: any) => {
+    population = +e.target.value;
+})
+
+
+// Global Variables
+let population: number = 20;
+let timeout: number = 1000 - +speedSlider.value;
+let paused: boolean = false;
+
+const boardWidth: number = 40;
+const boardHeight: number = 30;
+
+let board: boolean[][] = initializeBoard(boardWidth, boardHeight, population);
+
+(function loop() {
+    if (!paused) {
+        renderBoard(board);  
+        board = nextGeneration(board);
+    }
+    window.setTimeout(loop, timeout);
+})();
