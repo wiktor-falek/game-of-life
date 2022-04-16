@@ -3,7 +3,7 @@
  * @param height amount of arrays
  * @param population percentage chance of each individual cell to become true
  */
- function initializeBoard(width: number, height: number, population: number = 0): boolean[][]  {
+function initializeBoard(width: number, height: number, population: number = 0): boolean[][]  {
     const row: boolean[] = new Array(width).fill(false);
     const board: boolean[][] = new Array(height)
     .fill(row)

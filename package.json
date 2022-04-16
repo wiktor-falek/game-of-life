@@ -1,0 +1,23 @@
+{
+  "name": "game-of-life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wiktor-falek/game-of-life.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wiktor-falek/game-of-life/issues"
+  },
+  "homepage": "https://github.com/wiktor-falek/game-of-life#readme",
+  "dependencies": {
+    "typescript": "^4.6.3"
+  }
+}
