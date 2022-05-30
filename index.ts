@@ -42,7 +42,7 @@ function getCellValue(x: number, y: number, board: boolean[][]): boolean {
 function getAliveNeighborsCount(x: number, y: number, board: boolean[][]): number {
     const neighborCoordinates = [
         [x-1, y-1], [x-1, y], [x-1, y+1],
-        [x, y-1  ],           [x, y+1  ],
+        [x,   y-1],           [x,   y+1],
         [x+1, y-1], [x+1, y], [x+1, y+1]
     ];
 
@@ -96,7 +96,7 @@ function renderBoard(board: boolean[][]): void {
 const canvas: any = document.querySelector('#canvas');
 canvas.addEventListener("mousedown", function(e: any) {
     const rect = canvas.getBoundingClientRect();
-    const xIndex = (e.clientX - rect.left) / squareSize >> 0;
+    const xIndex = (e.clientX - rect.left) / squareSize >> 0; // rounds down
     const yIndex = (e.clientY - rect.top) / squareSize >> 0;
     const cell = getCellValue(xIndex, yIndex, board);
     board[yIndex][xIndex] = !cell;
