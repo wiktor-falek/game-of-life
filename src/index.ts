@@ -77,7 +77,7 @@ function nextGeneration(board: boolean[][]): boolean[][] {
     return newBoard;
 }
 
-function drawSquare(x: number, y: number, board: boolean[][], squareSize:number): void {
+function drawSquare(x: number, y: number, board: boolean[][], squareSize: number): void {
     const cellIsAlive = board[y][x];
     ctx.fillStyle = cellIsAlive? "green": "black";
     ctx.fillRect(x*squareSize, y*squareSize, squareSize-1, squareSize-1);
@@ -108,7 +108,7 @@ const ctx: any = canvas.getContext('2d');
 
 const nextButton: any = document.querySelector("#next");
 nextButton.addEventListener('click', () => {
-    board = nextGeneration(board)
+    board = nextGeneration(board);
     renderBoard(board);
 })
 
