@@ -1,7 +1,7 @@
 /**
  * @param width length of each array
  * @param height amount of arrays
- * @param population percentage chance of each individual cell to become true
+ * @param population percentage chance for each cell to be set to true
  */
 function initializeBoard(width: number, height: number, population: number = 0): boolean[][]  {
     const row: boolean[] = new Array(width).fill(false);
@@ -17,8 +17,8 @@ function initializeBoard(width: number, height: number, population: number = 0):
 }
 
 /**
- * returns value of cell at (x, y)
- * supports negative indexing to allow for toroidal matrix
+ * returns value of cell at (x, y) coordinate
+ * allows negative indexes to produce a toroidal matrix
  * @param x horizontal
  * @param y vertical
  * @param board two dimensional array
@@ -34,7 +34,7 @@ function getCellValue(x: number, y: number, board: boolean[][]): boolean {
 }
 
 /**
- * returns total amount of alive neighbors around position (x, y)
+ * returns total amount of alive neighbors of (x, y) cell
  * @param x horizontal
  * @param y vertical
  * @param board two dimensional array
@@ -97,9 +97,10 @@ const ctx: any = canvas.getContext('2d');
 
 // HTML Elements
 canvas.addEventListener("mousedown", function(e: any) {
+    // flip a cell and render on click
     const rect = canvas.getBoundingClientRect();
-    const xIndex = (e.clientX - rect.left) / squareSize >> 0; // rounds down
-    const yIndex = (e.clientY - rect.top) / squareSize >> 0;
+    const xIndex = Math.floor( (e.clientX - rect.left) / squareSize );
+    const yIndex = Math.floor( (e.clientY - rect.top ) / squareSize );
     const cell = getCellValue(xIndex, yIndex, board);
     board[yIndex][xIndex] = !cell;
     drawSquare(xIndex, yIndex, board, squareSize);
@@ -138,10 +139,11 @@ let population: number = 20;
 let timeout: number = 1000 - +speedSlider.value;
 let paused: boolean = false;
 
+
+// Board init
 const boardWidth: number = 40;
 const boardHeight: number = 30;
-const squareSize:number  = 20;
-
+const squareSize: number  = 20;
 let board: boolean[][] = initializeBoard(boardWidth, boardHeight, population);
 
 (function loop() {
