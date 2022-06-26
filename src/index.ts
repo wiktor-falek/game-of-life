@@ -85,15 +85,17 @@ function drawSquare(x: number, y: number, board: boolean[][], squareSize: number
 
 function renderBoard(board: boolean[][]): void {
     board.forEach((row, y) => {
-        row.forEach((cell, x) => {
+        row.forEach((_, x) => {
             drawSquare(x, y, board, squareSize);
         })
     })
 }
 
+// Canvas
+const canvas: any = document.querySelector('#canvas');
+const ctx: any = canvas.getContext('2d');
 
 // HTML Elements
-const canvas: any = document.querySelector('#canvas');
 canvas.addEventListener("mousedown", function(e: any) {
     const rect = canvas.getBoundingClientRect();
     const xIndex = (e.clientX - rect.left) / squareSize >> 0; // rounds down
@@ -103,15 +105,11 @@ canvas.addEventListener("mousedown", function(e: any) {
     drawSquare(xIndex, yIndex, board, squareSize);
 })
 
-const ctx: any = canvas.getContext('2d');
-
-
 const nextButton: any = document.querySelector("#next");
 nextButton.addEventListener('click', () => {
     board = nextGeneration(board);
     renderBoard(board);
 })
-
 
 const pauseButton: any = document.querySelector("#pause");
 pauseButton.addEventListener('click', (e: any) => {
@@ -119,13 +117,11 @@ pauseButton.addEventListener('click', (e: any) => {
     paused = !paused;
 })
 
-
 const resetButton: any = document.querySelector("#reset");
 resetButton.addEventListener('click', () => {
     board = initializeBoard(boardWidth, boardHeight, population);
     renderBoard(board);
 })
-
 
 const speedSlider: any = document.querySelector("#speed");
 speedSlider.addEventListener('change', (e: any) => {
@@ -136,7 +132,6 @@ const populationSlider: any = document.querySelector("#population");
 populationSlider.addEventListener('change', (e: any) => {
     population = +e.target.value;
 })
-
 
 // Global Variables
 let population: number = 20;
