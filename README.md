@@ -6,7 +6,7 @@
 
 
 ### How to run? 🤔
-##### Transpile to javascript using `tsc` command
+##### Install typescript and transpile to javascript using `tsc` command
 ##### Then open index.html in your browser
 
 
