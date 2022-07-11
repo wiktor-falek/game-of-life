@@ -63,7 +63,7 @@ function nextGeneration(board: boolean[][]): boolean[][] {
     const width: number = board[0].length;
     const height: number = board.length;
 
-    const newBoard: boolean[][] = initializeBoard(boardWidth, boardHeight, 0);
+    const newBoard: boolean[][] = initializeBoard(width, height);
     
     for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {
