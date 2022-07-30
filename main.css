@@ -22,22 +22,22 @@ body {
     grid-template-columns: repeat(var(--columns), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
 
-    opacity: 20%;
+    opacity: 30%;
 }
 
 .tile {
-    outline: 1px solid rgb(185, 185, 185);
+    outline: 1px dashed rgb(185, 185, 185);
 }
 
 
 .tile__alive {
-    background-color: rgb(21, 179, 0);
-    transition: background-color 0.3s;
+    background-color: rgb(255, 53, 204);
+    transition: background-color 0.1s ease-in;
 }
 
 .tile__dead {
     background-color: var(--background-color);
-    transition: background-color 0.3s ;
+    transition: background-color 0.2s;
 }
 
 #main {
