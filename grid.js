@@ -14,7 +14,6 @@ const createTile = (index, rows, columns) => {
     const tile = document.createElement('div');
     tile.classList.add('tile');
     tile.classList.add('tile__dead');
-    //tile.id = index;
     tile.setAttribute('x', index % columns);
     tile.setAttribute('y', Math.floor(index / columns));
     return tile;

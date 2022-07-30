@@ -16,7 +16,6 @@ window.onload = () => {
                 let cellValue = getCellValue(x, y, board);
                 let tile = document.querySelector(`.tile[x="${x}"][y="${y}"]`);
 
-                // replace tile__dead -> tile__alive and vice versa
                 if (cellValue) {
                     tile.classList.remove("tile__dead");
                     tile.classList.add("tile__alive");
