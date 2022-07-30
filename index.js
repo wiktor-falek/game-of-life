@@ -1,14 +1,18 @@
 window.onresize = () => {
-    if (document.body.clientWidth <= 428 && document.body.clientHeight <= 926) {
-        pseudoTileSize = 25;
-    }
+    pseudoTileSize = document.body.clientWidth <= 768 && document.body.clientHeight <= 1024 ?
+    30 : 45;
+
+    columns = Math.floor(document.body.clientWidth / pseudoTileSize);
+    rows = Math.floor(document.body.clientHeight / pseudoTileSize);
+
     createGrid()
     board = initializeBoard(columns, rows, 20); 
 };
 
-
 window.onload = () => {
     setInterval(() => {
+        if (document.hidden) return;
+
         board = nextGeneration(board);
 
         for (let x = 0; x < columns; x++) {
@@ -26,5 +30,5 @@ window.onload = () => {
                 }
             }
         }
-    }, 300);
+    }, 250);
 }

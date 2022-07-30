@@ -1,10 +1,7 @@
 const tiles = document.querySelector("#tiles");
 
-let pseudoTileSize = 40;
-
-if (document.body.clientWidth <= 428 && document.body.clientHeight <= 926) {
-    pseudoTileSize = 25;
-}
+let pseudoTileSize = document.body.clientWidth <= 768 && document.body.clientHeight <= 1024 ?
+25 : 40;
 
 let columns = Math.floor(document.body.clientWidth / pseudoTileSize);
 let rows = Math.floor(document.body.clientHeight / pseudoTileSize);
