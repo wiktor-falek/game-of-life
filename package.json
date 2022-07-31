@@ -2,9 +2,14 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "source": "despair/fuckWebpack.js",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "concat-js": "cat src/js/grid.js src/js/gol.js src/js/index.js src/js/smoothScroll.js > bundle/fuckWebpack.js",
+    "concat-css": "cat src/css/base.css src/css/gol.css src/css/header.css src/css/navbar.css src/css/cool.css > bundle/webpackSucks.css",
+    "minify": "minify bundle/fuckWebpack.js > dist/fuckWebpack.min.js && minify bundle/webpackSucks.css > dist/webpackSucks.min.css",
+    "build": "mkdir bundle dist 2> /dev/null & npm run concat-js && npm run concat-css && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -16,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/wiktor-falek/gol-grid-template/issues"
   },
-  "homepage": "https://github.com/wiktor-falek/gol-grid-template#readme"
+  "homepage": "https://github.com/wiktor-falek/gol-grid-template#readme",
+  "devDependencies": {
+    "parcel": "^2.6.2"
+  },
+  "dependencies": {
+    "minify": "^9.1.0"
+  }
 }
