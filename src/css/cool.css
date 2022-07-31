@@ -20,6 +20,7 @@
         var(--primary-color)
     );
     background-size: 200%;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

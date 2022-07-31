@@ -24,6 +24,10 @@ a {
     all: unset;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 .main {
     width: 100vw;
     height: 100%;

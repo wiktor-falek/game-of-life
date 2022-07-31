@@ -18,7 +18,6 @@
 
 .navbar ul:hover > li:hover {
     opacity: 1;
-    cursor: pointer;
     color: var(--primary-color)
 }
 
