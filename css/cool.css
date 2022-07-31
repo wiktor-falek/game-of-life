@@ -1,0 +1,25 @@
+@keyframes background-pan {
+    from {
+        background-position: 0% center;
+    }
+    to {
+        background-position: -200% center;
+    }
+}
+
+
+.cool {
+    opacity: 0.8;
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(
+        -45deg,
+        var(--primary-color),
+        rgb(133, 22, 133),
+        var(--primary-color),
+        rgb(151, 25, 151),
+        var(--primary-color)
+    );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

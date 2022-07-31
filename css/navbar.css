@@ -1,0 +1,24 @@
+.navbar {
+    width: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navbar li, ul {
+    all: unset;
+}
+
+.navbar ul li {
+    margin: 0 0.5rem;
+}
+
+.navbar ul:hover > li {
+    opacity: 0.5;
+}
+
+.navbar ul:hover > li:hover {
+    opacity: 1;
+    cursor: pointer;
+    color: var(--primary-color)
+}
+

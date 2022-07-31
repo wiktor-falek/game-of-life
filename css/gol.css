@@ -1,0 +1,25 @@
+.tiles {
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
+    opacity: 30%;
+    z-index: 0;
+}
+
+.tile {
+    outline: 1px dashed rgb(185, 185, 185);
+}
+
+
+.tile__alive {
+    background-color: #4db8ff;
+    transition: background-color 0.1s ease-in;
+}
+
+.tile__dead {
+    background-color: var(--background-color);
+    transition: background-color 0.2s;
+}

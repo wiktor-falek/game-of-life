@@ -4,19 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
     <title>Template</title>
-    <script src="grid.js" defer></script>
-    <script src="gol.js" defer></script>
-    <script src="index.js" defer></script>
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/gol.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/cool.css">
+
+    <script src="js/grid.js" defer></script>
+    <script src="js/gol.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <script src="js/smoothScroll.js" defer></script>
 </head>
 <body>
-    <div id="tiles">
+    <div class="tiles">
     </div>
-    <div id="main">
-        <div class="content">
+    <div class="main">
+        <header>
+            <div class="header-wrapper">
+                <div class="header-logo">
+                    <p class="cool">
+                        <span>FALEK</span>.<span>DEV</span>
+                    </p>
+                </div>
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="#about" onclick="smoothScroll(event)">About</a></li>
+                        <li><a href="#work" onclick="smoothScroll(event)">Work</a></li>
+                        <li><a href="#blog" onclick="smoothScroll(event)">Blog</a></li>
+                        <li><a href="#contact" onclick="smoothScroll(event)">Contact</a></li>
+                    </ul>
+                    <div class="hamburger-menu"></div>
+                </nav>
+            </div>
+
+        </header>
+
+
+        <div class="section" id="about">
             <h1>Hi, Welcome to my website</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, vitae, itaque dolor libero voluptates, tempore ex similique ducimus aliquam sint maiores debitis excepturi minus consequatur? Aut, sequi ipsum. Molestiae, veniam placeat architecto incidunt itaque facilis accusantium nisi accusamus delectus iure fuga sequi quos eveniet, ipsam veritatis quidem reprehenderit impedit ad!</p>
+            <p>My name is Wiktor, and I am a fullstack developer</p>
+        </div>
+
+        <div class="section" id="work">
+            <h1>Work</h1>
+        </div>
+
+        <div class="section" id="blog">
+            <h1>Blog</h1>
+        </div>
+
+        <div class="section" id="contact">
+            <h1>Contact</h1>
         </div>
     </div>
 </body>
