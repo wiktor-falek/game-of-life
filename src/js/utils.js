@@ -6,3 +6,7 @@ const smoothScroll = (e) => {
         behavior: 'smooth'
     });
 }
+
+document.querySelector("#menu-button").onclick = () => {
+    button.classList.toggle("toggled");
+}

@@ -17,6 +17,14 @@ header {
     margin: auto;
     padding: 12px 0 10px 0;
     justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 1050px) {
+    .header-wrapper {
+        align-items: space-between;
+        width: 90%;
+    }
 }
 
 

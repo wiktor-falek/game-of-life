@@ -10,8 +10,10 @@ window.onresize = () => {
 };
 
 window.onload = () => {
+    let paused = false;
+
     setInterval(() => {
-        if (document.hidden) return;
+        if (document.hidden || paused) return;
 
         board = nextGeneration(board);
 

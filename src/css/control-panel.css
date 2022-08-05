@@ -1,0 +1,25 @@
+.control-panel {
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    transform: skew(-15deg);
+}
+
+
+.control-panel__button {
+    background-color: var(--primary-color);
+    width: 80px;
+    height: 26px;
+    padding: 0;
+    border: none;
+    border-radius: 0px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+
+.control-panel__button:hover {
+    opacity: 0.7;
+}

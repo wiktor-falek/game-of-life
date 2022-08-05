@@ -21,3 +21,52 @@
     color: var(--primary-color)
 }
 
+#menu-button {
+    display: none;
+    cursor: pointer;
+
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 0;
+
+    height: 26px;
+    width: 40px;
+}
+
+#icon {
+    background-color: var(--primary-color);
+    height: 4px;
+    position: relative;
+    width: 32px;
+}
+
+#icon::before {
+    position: absolute;
+    content: "";
+    background-color: var(--primary-color);
+    left: 0;
+    width: 32px;
+    height: 4px;
+    top: -11px;
+}
+
+#icon::after {
+    position: absolute;
+    content: "";
+    background-color: var(--primary-color);
+    left: 0;
+    width: 32px;
+    height: 4px;
+    bottom: -11px;
+}
+
+@media (max-width: 960px) {
+    .navbar {
+        display: none;
+    }
+    #menu-button {
+        display: block;
+    }
+
+}
