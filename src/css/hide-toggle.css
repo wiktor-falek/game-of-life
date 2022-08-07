@@ -1,0 +1,16 @@
+#hide-toggle {
+    z-index: 3;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    height: 40px;
+}
+
+.hide-toggle__hidden {
+    visibility: hidden;
+}
+
+.hide-toggle__visible {
+    display: block;
+    visibility: visible;
+}

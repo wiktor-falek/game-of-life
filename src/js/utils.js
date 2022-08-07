@@ -8,5 +8,5 @@ const smoothScroll = (e) => {
 }
 
 document.querySelector("#menu-button").onclick = () => {
-    button.classList.toggle("toggled");
+    
 }

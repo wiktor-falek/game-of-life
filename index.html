@@ -12,12 +12,14 @@
     <link rel="stylesheet" href="./src/css/navbar.css">
     <link rel="stylesheet" href="./src/css/header.css">
     <link rel="stylesheet" href="./src/css/cool.css">
+    <link rel="stylesheet" href="./src/css/hide-toggle.css">
     <link rel="stylesheet" href="./src/css/control-panel.css">
 
     <script src="./src/js/grid.js" defer></script>
     <script src="./src/js/gol.js" defer></script>
     <script src="./src/js/index.js" defer></script>
     <script src="./src/js/utils.js" defer></script>
+    <script src="./src/js/toggleContent.js" defer></script>
     
 <!--
     <link rel="stylesheet" href="./dist/webpackSucks.min.css">
@@ -28,20 +30,16 @@
 </head>
 
 <body>
-    <div class="tiles">
-    </div>
-    <div class="main">
+
+    <div id="why does shit break when i remove this i dunno">
+        <button id="hide-toggle" onClick="toggleContent()">toggle</button>
+        
         <header>
             <div class="header-wrapper">
                 <div class="header-logo">
                     <p class="cool">
                         <a href="/">FALEK.DEV</a>
                     </p>
-                </div>
-                <div class="control-panel">
-                    <button class="control-panel__button" id="state-button">Resume</button>
-                    <button class="control-panel__button" id="about-button">About</button>
-                    <button class="control-panel__button" id="play-button">Play</button>
                 </div>
                 <nav class="navbar">
                     <ul>
@@ -54,34 +52,48 @@
                 <button id="menu-button">
                     <div id="icon"></div>
                 </button>
+
             </div>
 
         </header>
 
-
-        <div class="section" id="about">
-            <h1>Hi, Welcome to my website</h1>
-            <p>My name is Wiktor, and I am a fullstack web developer</p>
-        </div>
-
-        <div class="section" id="work">
-            <h2>Work</h2>
-        </div>
-
-        <div class="section" id="blog">
-            <h2>Blog</h2>
-        </div>
-
-        <div class="section" id="contact">
-            <h2>Contact</h2>
-            <div>
-                <p>Email: wiktor@falek.dev</p>
-                <p>
-                    <span>&lt;Github Icon&gt;</span>
-                    <span>&lt;LinkedIn Icon&gt;</span>
-                </p>
+        <header id="control-panel">
+            <div class="header-wrapper">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
             </div>
         </div>
+
+        <div class="content hide-toggle__visible">
+            <div class="section" id="about">
+                <h1>Hi, Welcome to my website</h1>
+                <p>My name is Wiktor, and I am a fullstack web developer</p>
+            </div>
+    
+            <div class="section" id="work">
+                <h2>Work</h2>
+            </div>
+    
+            <div class="section" id="blog">
+                <h2>Blog</h2>
+            </div>
+    
+            <div class="section" id="contact">
+                <h2>Contact</h2>
+                <div>
+                    <p>Email: wiktor@falek.dev</p>
+                    <p>
+                        <span>&lt;Github Icon&gt;</span>
+                        <span>&lt;LinkedIn Icon&gt;</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="tiles">
+
     </div>
 </body>
 </html>

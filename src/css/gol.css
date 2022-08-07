@@ -1,12 +1,21 @@
 .tiles {
-    height: 100vh;
+    height: calc(100vh - 60px);
     width: 100vw;
+    margin-top: 60px;
+
+    box-sizing: content-box;
 
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
     opacity: 30%;
-    z-index: 0;
+
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
 }
 
 .tile {

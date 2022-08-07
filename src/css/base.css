@@ -6,7 +6,6 @@
 
 body {
     margin: 0;
-    overflow: hidden;
     height: 100vh;
 
     background-color: var(--background-color);
@@ -29,14 +28,6 @@ a:hover {
     cursor: pointer;
 }
 
-.main {
-    width: 100vw;
-    height: 100%;
-    overflow: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
 
 .section {
     padding-top: 15vh;
@@ -47,5 +38,11 @@ a:hover {
     width: 60%;
     margin: auto;
     text-align: center;
-    z-index: 1;
+}
+
+#hide-toggle {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 100%;
 }

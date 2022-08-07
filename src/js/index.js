@@ -3,7 +3,7 @@ window.onresize = () => {
     30 : 45;
 
     columns = Math.floor(document.body.clientWidth / pseudoTileSize);
-    rows = Math.floor(document.body.clientHeight / pseudoTileSize);
+    rows = Math.floor((document.body.clientHeight - 60) / pseudoTileSize);
 
     createGrid()
     board = initializeBoard(columns, rows, 20); 
@@ -32,5 +32,6 @@ window.onload = () => {
                 }
             }
         }
+
     }, 300);
 }
