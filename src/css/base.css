@@ -11,6 +11,7 @@ body {
     background-color: var(--background-color);
     color: #ddd;
 
+    font-size: 1.2rem;
     font-family: sans-serif;
     line-height: 1.4;
 }
@@ -33,11 +34,17 @@ a:hover {
     padding-top: 15vh;
     height: 85vh;
     
-    font-size: 1.5rem;
-
     width: 60%;
     margin: auto;
     text-align: center;
+}
+
+.cards {
+    
+}
+
+.card {
+
 }
 
 #hide-toggle {

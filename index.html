@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./src/css/navbar.css">
     <link rel="stylesheet" href="./src/css/header.css">
     <link rel="stylesheet" href="./src/css/cool.css">
+    <link rel="stylesheet" href="./src/css/cards.css">
     <link rel="stylesheet" href="./src/css/hide-toggle.css">
     <link rel="stylesheet" href="./src/css/control-panel.css">
 
@@ -44,8 +45,8 @@
                 <nav class="navbar">
                     <ul>
                         <li><a href="#about" onclick="smoothScroll(event)">About</a></li>
+                        <li><a href="#skills" onclick="smoothScroll(event)">Skills</a></li>
                         <li><a href="#work" onclick="smoothScroll(event)">Work</a></li>
-                        <li><a href="#blog" onclick="smoothScroll(event)">Blog</a></li>
                         <li><a href="#contact" onclick="smoothScroll(event)">Contact</a></li>
                     </ul>
                 </nav>
@@ -59,24 +60,48 @@
 
         <header id="control-panel">
             <div class="header-wrapper">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
+                <button>Pause</button>
+                <button>Next</button>
+                <button>Reset</button>
             </div>
         </div>
 
         <div class="content hide-toggle__visible">
             <div class="section" id="about">
-                <h1>Hi, Welcome to my website</h1>
-                <p>My name is Wiktor, and I am a fullstack web developer</p>
+                <h1>Hi, my name is Wiktor</h1>
+                <h2>I do fullstack web development</h2>
+
+            </div>
+    
+            <div class="section" id="skills">
+                <h3>Skills</h3>
+
+                <div class="cards">
+
+                    <br> 
+
+                    <div class="card">
+                        <h4>Backend Development</h4>
+                        <p>Experienced in Node.js & Express with and without TypeScript</p>
+                    </div>    
+                    <div class="card">
+                        <h4>Databases</h4>
+                        <p>MongoDB (Mongoose), SQL</p>
+                        <p>Postgres, GraphQL (Soon™)</p>
+                        
+                    </div>
+                    <div class="card">
+                        <h4>Frontend Development</h4>
+                        <p>React and Vanilla JavaScript components</p>
+                        <p>Solid knowledge of CSS and its preprocessors - Sass and Less (Soon™)</p>
+                    </div>
+                    
+                </div>
+                
             </div>
     
             <div class="section" id="work">
                 <h2>Work</h2>
-            </div>
-    
-            <div class="section" id="blog">
-                <h2>Blog</h2>
             </div>
     
             <div class="section" id="contact">
