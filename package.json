@@ -6,10 +6,11 @@
   "main": "dist/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "concat-js": "cat src/js/grid.js src/js/gol.js src/js/index.js src/js/smoothScroll.js > bundle/fuckWebpack.js",
-    "concat-css": "cat src/css/base.css src/css/gol.css src/css/header.css src/css/navbar.css src/css/cool.css > bundle/webpackSucks.css",
-    "minify": "minify bundle/fuckWebpack.js > dist/fuckWebpack.min.js && minify bundle/webpackSucks.css > dist/webpackSucks.min.css",
-    "build": "mkdir bundle dist 2> /dev/null & npm run concat-js && npm run concat-css && npm run minify"
+  
+    "cat-js": "cat src/js/gol.js src/js/grid.js src/js/index.js src/js/utils.js src/js/toggleContent.js > bundle/bundle.js",
+    "cat-css": "cat src/css/base.css src/css/gol.css src/css/navbar.css src/css/header.css src/css/cool.css src/css/cards.css src/css/hide-toggle.css src/css/control-panel.css > bundle/bundle.css",
+    "minify": "minify bundle/bundle.js > dist/bundle.min.js & minify bundle/bundle.css > dist/bundle.min.css",
+    "build": "mkdir bundle dist 2> /dev/null & npm run cat-js && npm run cat-css && npm run minify"
   },
   "repository": {
     "type": "git",
