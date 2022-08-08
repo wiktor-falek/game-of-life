@@ -1,17 +1,19 @@
 .cards {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 
 .card {
-    width: 30%;
-    height: 230px;  
+    padding: 10px 15px;
+    flex: 1;
+    height: 230px;
+    box-sizing: border-box;
     background: rgba(40, 40, 40, 0.40);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(31, 31, 31, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(12.6px);
     border: 2px solid rgb(141, 141, 141);
+    margin: 0 10px;;
 }
