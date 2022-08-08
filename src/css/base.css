@@ -29,10 +29,9 @@ a:hover {
     cursor: pointer;
 }
 
-
 .section {
-    padding-top: 15vh;
-    height: 85vh;
+    padding-top: 20vh;
+    height: 80vh;
     
     width: 60%;
     margin: auto;
