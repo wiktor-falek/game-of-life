@@ -3,14 +3,19 @@
 
 ## TODO
 
-- [ ] Card style
+- [x] Card style
  
-- [ ] Cards flexbox
+- [ ] Cards responsive layout
 
-- [ ] Fix header style
+- [ ] Fix header justify content
 
 - [ ] Style toggle button
 
 - [ ] Style control panel buttons
 
 - [ ] Game of Life tooltips/tutorial
+
+
+## Bugs 
+
+- [ ] Firefox triggering resize on new tab open 😠
