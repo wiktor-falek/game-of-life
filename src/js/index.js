@@ -26,7 +26,7 @@ window.onresize = () => {
 
     createGrid()
     board = initializeBoard(columns, rows, 20); 
-    console.log('resized', document.body.clientWidth, document.body.clientHeight)
+    //console.log('resized', document.body.clientWidth, document.body.clientHeight)
     renderBoard();
 };
 
@@ -49,6 +49,12 @@ window.onload = () => {
         }
 
     });
+
+    let resetButton = document.querySelector("#reset");
+    resetButton.addEventListener("click", () => {
+        board = initializeBoard(columns, rows, 20);
+        renderBoard();
+    })
 
     let clearButton = document.querySelector("#clear");
     clearButton.addEventListener("click", () => {
