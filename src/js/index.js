@@ -35,14 +35,18 @@ window.onload = () => {
     let pauseButton = document.querySelector("#pause");
     pauseButton.addEventListener("click", () => {
         paused = !paused;
+        pauseButton.innerHTML = paused? "Resume": "Pause";
+        nextButton.disabled = !paused;
     });
 
     let nextButton = document.querySelector("#next");
+    nextButton.disabled = true;
     nextButton.addEventListener("click", () => {
         if (paused) {
             board = nextGeneration(board);
             renderBoard();
         }
+
     });
 
     let resetButton = document.querySelector("#reset");
