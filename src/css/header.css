@@ -25,18 +25,8 @@ header {
     width: 60%;
 }
 
-
 .header-wrapper:not(#control-panel) {
     justify-content: space-between;
-}
-
-#control-panel {
-    border-bottom: 1px solid rgb(50, 50, 50);
-
-}
-
-#control-panel .header-wrapper {
-    justify-content: space-around;
 }
 
 .header-logo p {

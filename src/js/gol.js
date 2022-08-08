@@ -48,5 +48,3 @@ function nextGeneration(board) {
     ;
     return newBoard;
 }
-
-let board = initializeBoard(columns, rows, 20); 

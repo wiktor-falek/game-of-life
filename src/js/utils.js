@@ -7,6 +7,3 @@ const smoothScroll = (e) => {
     });
 }
 
-document.querySelector("#menu-button").onclick = () => {
-    
-}

@@ -6,6 +6,8 @@ let pseudoTileSize = document.body.clientWidth <= 768 && document.body.clientHei
 let columns = Math.floor(document.body.clientWidth / pseudoTileSize);
 let rows = Math.floor((document.body.clientHeight - 60) / pseudoTileSize);
 
+let board = initializeBoard(columns, rows, 20); 
+
 
 const createTile = (index, rows, columns) => {
     const tile = document.createElement('div');
