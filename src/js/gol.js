@@ -10,6 +10,7 @@ function initializeBoard(width, height, population = 0) {
     });
     return board;
 }
+
 function getCellValue(x, y, board) {
     const width = board[0].length;
     const height = board.length;
@@ -17,6 +18,7 @@ function getCellValue(x, y, board) {
     const yIndex = ((y % height) + height) % height;
     return board[yIndex][xIndex];
 }
+
 function getAliveNeighborsCount(x, y, board) {
     const neighborCoordinates = [
         [x - 1, y - 1], [x - 1, y], [x - 1, y + 1],
@@ -30,6 +32,7 @@ function getAliveNeighborsCount(x, y, board) {
     });
     return aliveCount;
 }
+
 function nextGeneration(board) {
     const width = board[0].length;
     const height = board.length;
@@ -40,11 +43,8 @@ function nextGeneration(board) {
             let cellValue = getCellValue(x, y, board);
             if (aliveNeighborsCount === 2 && cellValue || aliveNeighborsCount === 3) {
                 newBoard[y][x] = true;
-            }
-            ;
-        }
-        ;
-    }
-    ;
+            };
+        };
+    };
     return newBoard;
 }
