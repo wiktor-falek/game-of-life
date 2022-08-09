@@ -8,7 +8,7 @@
     width: 60px;
 }
 
-#control-panel .header-wrapper {
+#control-panel .header__wrapper {
     justify-content: center;
     gap: 30px;
     align-items: center;
