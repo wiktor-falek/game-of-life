@@ -19,13 +19,13 @@ header {
 }
 
 
-.header__wrapper {
+.header-wrapper {
     display: flex;
     padding: 20px 0px;
     width: 60%;
 }
 
-.header__wrapper:not(#control-panel) {
+.header-wrapper:not(#control-panel) {
     justify-content: space-between;
 }
 
