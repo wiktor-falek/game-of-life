@@ -2,11 +2,9 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "",
-  "source": "despair/fuckWebpack.js",
   "main": "dist/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-  
     "cat-js": "cat src/js/gol.js src/js/grid.js src/js/index.js src/js/utils.js src/js/toggleContent.js > bundle/bundle.js",
     "cat-css": "cat src/css/base.css src/css/gol.css src/css/navbar.css src/css/header.css src/css/cool.css src/css/cards.css src/css/hide-toggle.css src/css/control-panel.css > bundle/bundle.css",
     "minify": "minify bundle/bundle.js > dist/bundle.min.js & minify bundle/bundle.css > dist/bundle.min.css",
@@ -24,9 +22,6 @@
   },
   "homepage": "https://github.com/wiktor-falek/gol-grid-template#readme",
   "devDependencies": {
-    "parcel": "^2.6.2"
-  },
-  "dependencies": {
     "minify": "^9.1.0"
   }
 }
