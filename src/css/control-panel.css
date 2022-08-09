@@ -3,13 +3,11 @@
 }
 
 
-#control-panel button {
-    height: 40px;
-    width: 60px;
+.control-panel--button {
+    padding-top: 5px;
 }
 
-#control-panel .header__wrapper {
-    justify-content: center;
-    gap: 30px;
-    align-items: center;
+#control-panel .header--wrapper {
+   justify-content: center;
+   gap: 20px;
 }
