@@ -1,7 +1,13 @@
+/**
+ * 
+ * @param {number} width length of each array inside board
+ * @param {number} height amount of arrays inside board
+ * @param {number} population % chance of each boolean to become true
+ * @returns {boolean[][]}
+ */
 function initializeBoard(width, height, population = 0) {
-    const row = new Array(width).fill(false);
     const board = new Array(height)
-        .fill(row)
+        .fill(new Array(width).fill(undefined))
         .map((row) => {
         return row.map(() => {
             let roll = Math.random() * 100;
