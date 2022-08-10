@@ -29,7 +29,7 @@ function getCellValue(x, y, board) {
 function getAliveNeighborsCount(x, y, board) {
     const neighborCoordinates = [
         [x - 1, y - 1], [x - 1, y], [x - 1, y + 1],
-        [x, y - 1], [x, y + 1],
+        [x    , y - 1],             [x    , y + 1],
         [x + 1, y - 1], [x + 1, y], [x + 1, y + 1]
     ];
     let aliveCount = 0;
