@@ -20,6 +20,7 @@ function initializeBoard(width, height, population = 0) {
 function getCellValue(x, y, board) {
     const width = board[0].length;
     const height = board.length;
+    // support indices that are negative or bigger than length of array
     const xIndex = ((x % width) + width) % width;
     const yIndex = ((y % height) + height) % height;
     return board[yIndex][xIndex];
@@ -32,6 +33,7 @@ function getAliveNeighborsCount(x, y, board) {
         [x + 1, y - 1], [x + 1, y], [x + 1, y + 1]
     ];
     let aliveCount = 0;
+
     neighborCoordinates.forEach((pos) => {
         let [x, y] = pos;
         aliveCount += +getCellValue(x, y, board);
