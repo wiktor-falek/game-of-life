@@ -9,14 +9,15 @@
 
 
 .cool {
+    filter: brightness(150%);
     opacity: 0.8;
     animation: background-pan 3s linear infinite;
     background: linear-gradient(
         -45deg,
         var(--primary-color),
-        rgb(133, 22, 133),
+        rgb(173, 29, 173),
         var(--primary-color),
-        rgb(151, 25, 151),
+        rgb(173, 29, 173),
         var(--primary-color)
     );
     background-size: 200%;
