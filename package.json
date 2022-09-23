@@ -4,11 +4,7 @@
   "description": "",
   "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "cat-js": "cat src/js/gol.js src/js/grid.js src/js/index.js src/js/utils.js src/js/toggleContent.js > bundle/bundle.js",
-    "cat-css": "cat src/css/base.css src/css/gol.css src/css/navbar.css src/css/header.css src/css/cool.css src/css/cards.css src/css/hide-toggle.css src/css/control-panel.css > bundle/bundle.css",
-    "minify": "minify bundle/bundle.js > dist/bundle.min.js & minify bundle/bundle.css > dist/bundle.min.css",
-    "build": "mkdir bundle dist 2> /dev/null & npm run cat-js && npm run cat-css && npm run minify"
+    "dev": "live-server public/"
   },
   "repository": {
     "type": "git",
@@ -22,6 +18,6 @@
   },
   "homepage": "https://github.com/wiktor-falek/gol-grid-template#readme",
   "devDependencies": {
-    "minify": "^9.1.0"
+    "live-server": "^1.2.2"
   }
 }

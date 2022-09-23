@@ -68,5 +68,5 @@ window.onload = () => {
         }
         board = nextGeneration(board);
         renderBoard();
-    }, 300);
+    }, 400);
 }

@@ -11,6 +11,7 @@ header {
     box-sizing: border-box;
 
     font-size: 1.6rem;
+    line-height: 0.8em;
     background-color: rgba(20, 20, 20, 0.6);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid rgb(50, 50, 50);

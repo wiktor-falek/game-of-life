@@ -17,3 +17,7 @@
     border: 2px solid rgb(141, 141, 141);
     margin: 0 10px;;
 }
+
+.card > p {
+    margin: 6px 0;
+}
