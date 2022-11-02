@@ -33,30 +33,29 @@ window.onload = () => {
     let paused = false;
 
     let pauseButton = document.querySelector("#pause");
-    pauseButton.addEventListener("click", () => {
+    pauseButton && pauseButton.addEventListener("click", () => {
         paused = !paused;
         pauseButton.innerHTML = paused? "Resume": "Pause";
         nextButton.disabled = !paused;
     });
 
     let nextButton = document.querySelector("#next");
-    nextButton.disabled = true;
-    nextButton.addEventListener("click", () => {
+    if (nextButton) nextButton.disabled = true;
+    nextButton && nextButton.addEventListener("click", () => {
         if (paused) {
             board = nextGeneration(board);
             renderBoard();
         }
-
     });
 
     let resetButton = document.querySelector("#reset");
-    resetButton.addEventListener("click", () => {
+    resetButton && resetButton.addEventListener("click", () => {
         board = initializeBoard(columns, rows, 20);
         renderBoard();
     })
 
     let clearButton = document.querySelector("#clear");
-    clearButton.addEventListener("click", () => {
+    clearButton && clearButton.addEventListener("click", () => {
         board = initializeBoard(columns, rows, 0);
         renderBoard();
     });
