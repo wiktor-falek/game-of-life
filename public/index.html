@@ -4,114 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
+    <title>Game of Life</title>
 
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/gol.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/hide-toggle.css">
-    <link rel="stylesheet" href="css/control-panel.css">
 
     <script src="js/gol.js" defer></script>
     <script src="js/grid.js" defer></script>
     <script src="js/index.js" defer></script>
     <script src="js/utils.js" defer></script>
-    <script src="js/toggleContent.js" defer></script>
 
 </head>
 
 <body>
+    <header>
+        <button id="pause" class="control-panel--button">Pause</button>
+        <button id="next" class="control-panel--button">Next</button>
+        <button id="reset" class="control-panel--button">Reset</button>
+        <button id="clear" class="control-panel--button">Clear</button>
+    </header>
 
-    <div id="why does shit break when i remove this i dunno">
-        <button id="hide-toggle" class="control-panel--button" onClick="toggleContent()">toggle</button>
-        
-        <header>
-            <div class="header--wrapper">
-                <div class="header-logo">
-                      <a href="/">FALEK.DEV</a>
-                </div>
-                <nav class="navbar">
-                    <ul>
-                        <li><a href="#about" onclick="smoothScroll(event)">About</a></li>
-                        <li><a href="#skills" onclick="smoothScroll(event)">Skills</a></li>
-                        <li><a href="#work" onclick="smoothScroll(event)">Work</a></li>
-                        <li><a href="#contact" onclick="smoothScroll(event)">Contact</a></li>
-                    </ul>
-                </nav>
-                <button id="menu-button">
-                    <div id="icon"></div>
-                </button>
-
-            </div>
-
-        </header>
-
-        <header id="control-panel">
-            <div class="header--wrapper">
-                <button id="pause" class="control-panel--button">Pause</button>
-                <button id="next" class="control-panel--button">Next</button>
-                <button id="reset" class="control-panel--button">Reset</button>
-                <button id="clear" class="control-panel--button">Clear</button>
-            </div>
-        </div>
-
-        <div class="content hide-toggle__visible">
-            <div class="section" id="about">
-                <h1>Hi, my name is Wiktor</h1>
-                <h2>I do fullstack web development</h2>
-
-            </div>
-    
-            <div class="section" id="skills">
-                <h2>Skills</h2>
-
-                <div class="cards">
-
-                    <br> 
-
-                    <div class="card">
-                        <h4>Backend Development</h4>
-                        <p>Experienced with server side JavaScript/TypeScript</p>
-                        <p>REST APIs with Express</p>
-                        <p>CRUD applications with MongoDB</p>
-                        <p>Familiar with socket.io</p>
-                    </div>    
-                    <div class="card">
-                        <h4>Databases</h4>
-                        <p>MongoDB Native driver with Joi for schema validation and Mongoose ODM</p>
-                        <p>SQL, Postgres (Soon™)</p>
-                        
-                    </div>
-                    <div class="card">
-                        <h4>Frontend Development</h4>
-                        <p>Fundamental knowledge of HTML, CSS and Sass </p>
-                        <p>Familiar with component frameworks such as React and Vue</p>
-                        <p>Currently learning Bootstrap</p>
-                    </div>
-                    
-                </div>
-                
-            </div>
-    
-            <div class="section" id="work">
-                <h2>Work</h2>
-            </div>
-    
-            <div class="section" id="contact">
-                <h2>Contact</h2>
-                <div>
-                    <p>Email: wiktor@falek.dev</p>
-                    <p>
-                        <span>&lt;Github Icon&gt;</span>
-                        <span>&lt;LinkedIn Icon&gt;</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     <div class="tiles">
 
     </div>

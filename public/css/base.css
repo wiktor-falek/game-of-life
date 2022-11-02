@@ -6,54 +6,34 @@
 
 body {
     margin: 0;
+    padding: 0;
     height: 100vh;
 
     background-color: var(--background-color);
-    color: #ddd;
-
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-family: sans-serif;
     line-height: 1.4;
 }
 
-h1, h2, h3, h4 {
-    line-height: 1.2;
-    margin: .5em 0 .5em 0;
-}
-
-a {
-    all: unset;
-}
-
-a:hover {
-    cursor: pointer;
-}
+header {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+  
+    position: fixed;
+    top: 0;
+  
+    width: 100%;
+    
+    box-sizing: border-box;
+  
+    border-bottom: 1px solid rgb(50, 50, 50);
+    border-top: 1px solid rgb(50, 50, 50);
+  }
+  
 
 button {
-    height: 40px !important;
-    width: 60px;
-}
-
-.section {
-    padding-top: 20vh;
-    height: 80vh;
-    
-    width: 60%;
-    margin: auto;
-    text-align: center;
-}
-
-.cards {
-    
-}
-
-.card {
-
-}
-
-#hide-toggle {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    height: 100%;
-}
+    padding: 0px 30px;
+    height: 50px;
+    width: 120px;
+}   

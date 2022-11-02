@@ -8,23 +8,15 @@
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
-    opacity: 30%;
-
-
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: -1;
-
 }
 
 .tile {
-    outline: 1px dashed rgb(185, 185, 185);
+    outline: 1px dashed rgb(112, 109, 109);
 }
 
 
 .tile__alive {
-    background-color: #4db8ff;
+    background-color: #562b8f;
     transition: background-color 0.1s ease-in;
 }
 
