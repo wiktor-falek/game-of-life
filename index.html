@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game of Life</title>
+
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="gol.css" />
+
+    <!-- <script src="src/gol-optimized.js" defer></script> -->
+    <!-- <script src="src/grid.js" defer></script> -->
+    <!-- <script src="src/index.js" defer></script> -->
+
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+
+  <body>
+    <!-- <div class="modal">
+      <div class="about">
+        <h1>What is Game of Life?</h1>
+        <p>
+          Game of life is a
+          <a href="https://en.wikipedia.org/wiki/Cellular_automaton"
+            >cellular automata</a
+          >
+          created by
+          <a href="https://en.wikipedia.org/wiki/John_Horton_Conway"
+            >John Conway</a
+          >, an English mathematician. It is a zero player game, which means the
+          outcome is decided by the initial state. Initial state can be
+          randomized, or customized by clicking on cells to flip their state.
+        </p>
+  
+        <h1>Rules</h1>
+        <p>
+          1. When a cell is dead, but has exactly 3 alive neigbors, it
+          becomes alive.
+        </p>
+        <p>
+          2. When an alive cell has exactly 2 or 3 alive neigbors, it becomes
+          alive, otherwise it becomes dead.
+        </p>
+  
+        <h1>Organisms</h1>
+        <p>
+          Despite seemingly random and chaotic rules, various interesting
+          organisms can occur with time.
+        </p>
+        <h2>Common organisms</h2>
+        <ul>
+          <li>Glider</li>
+          <li>Glider</li>
+          <li>Glider</li>
+          <li>Glider</li>
+          <li>Glider</li>
+          <li>Glider</li>
+          <li>Glider</li>
+        </ul>
+      </div>
+    </div> -->
+    
+
+    <div class="control-panel">
+      <button id="pause" class="control-panel--button">Pause</button>
+      <button id="next" class="control-panel--button">Next</button>
+      <button id="reset" class="control-panel--button">Reset</button>
+      <button id="clear" class="control-panel--button">Clear</button>
+    </div>
+
+    <div class="tiles"></div>
+  </body>
+</html>

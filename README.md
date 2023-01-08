@@ -1,7 +1,14 @@
-## TODO
+## Functionality
 
-- [ ] Button styling and positioning
-- [ ] Remove outline between neighboring tiles
+- [x] Control panel - Pause/Resume, Next, Reset, Clear
 - [ ] Speed slider
+- [ ] Life form presets, drag and drop onto the grid
+- [ ] Explanation modal
+- [ ] Resizing the matrix on window resize/zoom instead of reinitializing empty one (the ui has fixed size)
+
+
+## Nice to have
+
+- [ ] Optimization
 - [ ] Tooltips
-- [ ] Selecting and placing organisms onto the board
+- [ ] Theme picker
