@@ -18,14 +18,18 @@ const createTile = (index: number, rows: number, columns: number) => {
   tile.setAttribute("x", `${index % columns}`);
   tile.setAttribute("y", `${Math.floor(index / columns)}`);
 
-  tile.addEventListener("click", (event: Event) => {
+  tile.addEventListener("mousedown", (event: Event) => {
     // if (e.target === null) return;
     const target = event.target as HTMLElement;
 
-    let x = target.getAttribute("x");
-    let y = target.getAttribute("y");
-    let cellState = getCellValue(x, y, board);
-    board[y][x] = !cellState; // TODO: call a function instead to flip cell state inside board
+    const x = target.getAttribute("x");
+    const y = target.getAttribute("y");
+    const cellState = getCellValue(x, y, board);
+    if (x === null || y === null) {
+      throw new Error(`Cell (${x}, ${y}) not found`);
+    }
+
+    board[parseInt(y)][parseInt(x)] = !cellState; // TODO: call a function instead to flip cell state inside board
 
     if (cellState === true) {
       // if cell is alive change class to dead
