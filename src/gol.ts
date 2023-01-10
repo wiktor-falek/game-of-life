@@ -15,7 +15,7 @@ function initializeBoard(
   return board;
 }
 
-function getCellValue(x, y, board) {
+function getCellValue(x: number, y: number, board) {
   const width = board[0].length;
   const height = board.length;
   // support indices that are negative or bigger than length of array

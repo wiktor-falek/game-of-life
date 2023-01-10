@@ -22,14 +22,16 @@ const createTile = (index: number, rows: number, columns: number) => {
     // if (e.target === null) return;
     const target = event.target as HTMLElement;
 
-    const x = target.getAttribute("x");
-    const y = target.getAttribute("y");
-    const cellState = getCellValue(x, y, board);
-    if (x === null || y === null) {
-      throw new Error(`Cell (${x}, ${y}) not found`);
+    const xAttribute = target.getAttribute("x");
+    const yAttribute = target.getAttribute("y");
+    if (xAttribute === null || yAttribute === null) {
+      throw new Error(`Cell (${xAttribute}, ${yAttribute}) not found`);
     }
+    const x = parseInt(xAttribute);
+    const y = parseInt(yAttribute);
+    const cellState = getCellValue(x, y, board);
 
-    board[parseInt(y)][parseInt(x)] = !cellState; // TODO: call a function instead to flip cell state inside board
+    board[y][x] = !cellState; // TODO: call a function instead to flip cell state inside board
 
     if (cellState === true) {
       // if cell is alive change class to dead
