@@ -19,7 +19,6 @@ const createTile = (index: number, rows: number, columns: number) => {
   tile.setAttribute("y", `${Math.floor(index / columns)}`);
 
   tile.addEventListener("mousedown", (event: Event) => {
-    // if (e.target === null) return;
     const target = event.target as HTMLElement;
 
     const xAttribute = target.getAttribute("x");
